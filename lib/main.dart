@@ -29,8 +29,14 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
+        splashFactory: NoSplash.splashFactory,
+        highlightColor: Colors.transparent,
+      ),
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        highlightColor: Colors.transparent,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -74,7 +80,11 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: const NavigationBarApp(),
+      body: const Scaffold(
+          body: Center(
+            child: Text('Hello, world!'),
+          ),
+          bottomNavigationBar: NavigationExample()),
     );
   }
 }
