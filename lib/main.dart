@@ -1,15 +1,32 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_watch_like/NavBar/navigation_menu.dart';
+import 'package:just_watch_like/Profile/guest_page.dart';
+import 'package:just_watch_like/firebase_options.dart';
 
-void main() {
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
   );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
+final testScreens = <Widget>[
+  Container(
+    color: Colors.red,
+  ),
+  Container(
+    color: Colors.green,
+  ),
+  Container(
+    color: Colors.blue,
+  ),
+  Container(
+    color: Colors.yellow,
+  ),
+];
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,62 +37,63 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
-        splashFactory: NoSplash.splashFactory,
-        highlightColor: Colors.transparent,
       ),
-      darkTheme: ThemeData.dark().copyWith(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        highlightColor: Colors.transparent,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      darkTheme: ThemeData.dark(),
+      home: const MyTestPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyTestPage extends ConsumerWidget {
+  const MyTestPage({super.key});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    int selectedIndex = ref.watch(destinationStateProvider);
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+    return Scaffold(
+      appBar: const AppMenu(title: 'JustWatchLike'),
+      body: Center(
+        child: testScreens[selectedIndex],
+      ),
+      bottomNavigationBar: const NavigationMenu(),
+    );
+  }
+}
+
+class AppMenu extends StatelessWidget implements PreferredSizeWidget {
+  const AppMenu({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return const NavigationMenu();
+    return AppBar(
+      title: Text(title),
+      actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.search),
+          tooltip: 'Search',
+          onPressed: () {},
+        ),
+        IconButton(
+          icon: const Icon(Icons.manage_accounts_rounded),
+          tooltip: 'Account',
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const GuestPage(),
+              ),
+            );
+          },
+        ),
+      ],
+    );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

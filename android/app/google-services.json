@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1025510670675",
+    "project_id": "just-watch-like",
+    "storage_bucket": "just-watch-like.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025510670675:android:d6d3a72294f95b30b5a1a6",
+        "android_client_info": {
+          "package_name": "com.example.just_watch_like"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH7jtzAm-byRDRRu112gG-Rs8ZTqXEJxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
