@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:just_watch_like/main.dart";
 
 class GuestPage extends StatelessWidget {
   const GuestPage({Key? key}) : super(key: key);
