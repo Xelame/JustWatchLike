@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import './genre_model.dart';
 
-part 'movies_model.freezed.dart';
-part 'movies_model.g.dart';
+part 'movie_model.freezed.dart';
+part 'movie_model.g.dart';
 
 @freezed
-class MoviesModel with _$MoviesModel {
-  const factory MoviesModel({
+class Movie with _$Movie {
+  const factory Movie({
     required int id,
     required String title,
     required String overview,
@@ -16,8 +16,8 @@ class MoviesModel with _$MoviesModel {
     required int runtime,
     @JsonKey(name: 'vote_average') required double voteAverage,
     @JsonKey(name: 'release_date') required String releasedate,
-  }) = _MoviesModel;
+  }) = _Movie;
 
-  factory MoviesModel.fromJson(Map<String, dynamic> json) =>
-      _$MoviesModelFromJson(json);
+  factory Movie.fromJson(Map<String, dynamic> json) =>
+      _$MovieFromJson(json);
 }
