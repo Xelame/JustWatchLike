@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import "package:just_watch_like/main.dart";
+import "login_page.dart";
+import "register_page.dart";
 
 class GuestPage extends StatelessWidget {
   const GuestPage({Key? key}) : super(key: key);
@@ -12,29 +13,48 @@ class GuestPage extends StatelessWidget {
           "JustWatchLike Account",
         ),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           children: [
             CustomTileButton(
                 height: 75,
                 content: "Login",
                 heading: Icons.account_circle,
-                trailing: Icons.arrow_forward_rounded),
+                trailing: Icons.arrow_forward_rounded, 
+                onTap: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                },
+              ),
             CustomTileButton(
-                height: 100,
+                height: 75,
                 content: "Register",
                 heading: Icons.person_add_alt_1_rounded,
-                trailing: Icons.arrow_forward_rounded),
+                trailing: Icons.arrow_forward_rounded,
+                onTap: (){
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegisterPage()),
+                  );
+                }),
             CustomTileButton(
                 height: 75,
                 content: "Pays",
                 heading: Icons.public_rounded,
-                trailing: Icons.arrow_forward_rounded),
+                trailing: Icons.arrow_forward_rounded,
+                onTap: (){
+
+                }),
             CustomTileButton(
                 height: 75,
                 content: "Langues",
                 heading: Icons.translate_rounded,
-                trailing: Icons.arrow_forward_rounded),
+                trailing: Icons.arrow_forward_rounded,
+                onTap: (){
+
+                }),
           ],
         ),
       ),
@@ -49,15 +69,14 @@ class CustomTileButton extends StatelessWidget {
     required this.content,
     required this.heading,
     required this.trailing,
+    required this.onTap,
   });
 
   final double height;
-
   final IconData heading;
-
   final String content;
-
   final IconData trailing;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +84,7 @@ class CustomTileButton extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       height: height,
       child: ListTile(
-        
+        onTap: onTap,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
