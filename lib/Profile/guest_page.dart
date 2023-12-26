@@ -1,9 +1,10 @@
-import "package:flutter/material.dart";
-import "login_page.dart";
+import "package:flutter/material.dart";import "login_page.dart";
 import "register_page.dart";
+import "login_page.dart";
+
 
 class GuestPage extends StatelessWidget {
-  const GuestPage({Key? key}) : super(key: key);
+  const GuestPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,6 @@ class GuestPage extends StatelessWidget {
                 heading: Icons.translate_rounded,
                 trailing: Icons.arrow_forward_rounded,
                 onTap: (){
-
                 }),
           ],
         ),

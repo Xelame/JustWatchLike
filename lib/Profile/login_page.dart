@@ -34,12 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: const InputDecoration(
                   labelText: "Email",
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please enter your email";
-                  }
-                  return null;
-                },
+                
               ),
               TextFormField(
                 controller: _passController,
@@ -47,12 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: "Password",
                 ),
                 obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please enter your password";
-                  }
-                  return null;
-                },
+                
               ),
               ElevatedButton(
                 onPressed: () {
