@@ -5,6 +5,7 @@ import 'package:just_watch_like/NavBar/navigation_menu.dart';
 import 'package:just_watch_like/Profile/guest_page.dart';
 import 'package:just_watch_like/firebase_options.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
