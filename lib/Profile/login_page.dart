@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'profile_page.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -15,8 +16,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
 
   String _email = "";
   String _password = "";
@@ -98,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           // si l'utilisateur est correctement connecté le renvoyer vers la page de note
                         );
-                        // TODO : Ajouter la redirection
+                        // TODO : Ajouter la redirection vers la page de profil
                       } on FirebaseAuthException catch (e) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -108,6 +109,13 @@ class _LoginPageState extends State<LoginPage> {
                       } catch (e) {
                         print(e);
                       }
+                      if (_auth.currentUser != null) {
+                        String userEmail = _email.split('@')[0];
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => ProfilePage(userEmail: userEmail)),
+                        );
+                      } 
                     }
                   },
                   child: const Text('Login'),
