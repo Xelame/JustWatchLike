@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final destinationStateProvider = StateProvider<int>((ref) => 0);
 
-/// Flutter code sample for [NavigationBar].
 class NavigationMenu extends ConsumerWidget {
   const NavigationMenu({super.key});
 
