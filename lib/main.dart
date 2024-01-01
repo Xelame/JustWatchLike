@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:just_watch_like/NavBar/navigation_menu.dart';
-import 'package:just_watch_like/Profile/guest_page.dart';
+import 'package:just_watch_like/Navigation/NavBar.dart';
+import 'package:just_watch_like/Navigation/application_menu.dart';
 import 'package:just_watch_like/firebase_options.dart';
 
 
@@ -62,39 +62,4 @@ class MyTestPage extends ConsumerWidget {
       bottomNavigationBar: const NavigationMenu(),
     );
   }
-}
-
-class AppMenu extends StatelessWidget implements PreferredSizeWidget {
-  const AppMenu({super.key, required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: Text(title),
-      actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.search),
-          tooltip: 'Search',
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(Icons.manage_accounts_rounded),
-          tooltip: 'Account',
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const GuestPage(),
-              ),
-            );
-          },
-        ),
-      ],
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
