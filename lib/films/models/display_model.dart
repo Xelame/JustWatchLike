@@ -17,10 +17,10 @@ class Display with _$Display {
 class Result with _$Result {
   const factory Result({
     required int id,
-    String? name,
     String? title,
-    @JsonKey(name: 'poster_path') required String posterPath,
-    @JsonKey(name: 'vote_average') required double voteAverage,
+    String? name,
+    @JsonKey(name: 'poster_path') String? posterPath,
+    @JsonKey(name: 'vote_average') double? voteAverage,
     @JsonKey(name: 'media_type') required String mediaType,
   }) = _Result;
 

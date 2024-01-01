@@ -11,13 +11,14 @@ part 'tv_serie_model.g.dart';
 @freezed
 class Serie with _$Serie {
   const factory Serie({
+    required String id,
+    required String name,
+    required String overview,
     required String status,
     required List<Genre> genres,
     @JsonKey(name: 'backdrop_path') required String backdropPath,
     @JsonKey(name: 'poster_path') required String posterPath,
-    required String id,
-    required String name,
-    required String overview,
+    
     @JsonKey(name: 'episode_run_time') required String episodeRunTime,
     required List<Season> seasons,
     @JsonKey(name: 'vote_average') required String voteAverage,

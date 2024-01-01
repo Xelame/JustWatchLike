@@ -21,13 +21,15 @@ Season _$SeasonFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Season {
   @JsonKey(name: 'episode_count')
-  String get episodeCount => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
+  int get episodeCount => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
-  String get posterPath => throw _privateConstructorUsedError;
+  String? get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'season_number')
-  String get seasonNumber => throw _privateConstructorUsedError;
+  int get seasonNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'air_date')
+  String get airDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,11 +42,12 @@ abstract class $SeasonCopyWith<$Res> {
       _$SeasonCopyWithImpl<$Res, Season>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'episode_count') String episodeCount,
-      String id,
+      {@JsonKey(name: 'episode_count') int episodeCount,
+      int id,
       String name,
-      @JsonKey(name: 'poster_path') String posterPath,
-      @JsonKey(name: 'season_number') String seasonNumber});
+      @JsonKey(name: 'poster_path') String? posterPath,
+      @JsonKey(name: 'season_number') int seasonNumber,
+      @JsonKey(name: 'air_date') String airDate});
 }
 
 /// @nodoc
@@ -63,29 +66,34 @@ class _$SeasonCopyWithImpl<$Res, $Val extends Season>
     Object? episodeCount = null,
     Object? id = null,
     Object? name = null,
-    Object? posterPath = null,
+    Object? posterPath = freezed,
     Object? seasonNumber = null,
+    Object? airDate = null,
   }) {
     return _then(_value.copyWith(
       episodeCount: null == episodeCount
           ? _value.episodeCount
           : episodeCount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      posterPath: null == posterPath
+      posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       seasonNumber: null == seasonNumber
           ? _value.seasonNumber
           : seasonNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      airDate: null == airDate
+          ? _value.airDate
+          : airDate // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -99,11 +107,12 @@ abstract class _$$SeasonImplCopyWith<$Res> implements $SeasonCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'episode_count') String episodeCount,
-      String id,
+      {@JsonKey(name: 'episode_count') int episodeCount,
+      int id,
       String name,
-      @JsonKey(name: 'poster_path') String posterPath,
-      @JsonKey(name: 'season_number') String seasonNumber});
+      @JsonKey(name: 'poster_path') String? posterPath,
+      @JsonKey(name: 'season_number') int seasonNumber,
+      @JsonKey(name: 'air_date') String airDate});
 }
 
 /// @nodoc
@@ -120,29 +129,34 @@ class __$$SeasonImplCopyWithImpl<$Res>
     Object? episodeCount = null,
     Object? id = null,
     Object? name = null,
-    Object? posterPath = null,
+    Object? posterPath = freezed,
     Object? seasonNumber = null,
+    Object? airDate = null,
   }) {
     return _then(_$SeasonImpl(
       episodeCount: null == episodeCount
           ? _value.episodeCount
           : episodeCount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      posterPath: null == posterPath
+      posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       seasonNumber: null == seasonNumber
           ? _value.seasonNumber
           : seasonNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      airDate: null == airDate
+          ? _value.airDate
+          : airDate // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -155,29 +169,33 @@ class _$SeasonImpl implements _Season {
       {@JsonKey(name: 'episode_count') required this.episodeCount,
       required this.id,
       required this.name,
-      @JsonKey(name: 'poster_path') required this.posterPath,
-      @JsonKey(name: 'season_number') required this.seasonNumber});
+      @JsonKey(name: 'poster_path') this.posterPath,
+      @JsonKey(name: 'season_number') required this.seasonNumber,
+      @JsonKey(name: 'air_date') required this.airDate});
 
   factory _$SeasonImpl.fromJson(Map<String, dynamic> json) =>
       _$$SeasonImplFromJson(json);
 
   @override
   @JsonKey(name: 'episode_count')
-  final String episodeCount;
+  final int episodeCount;
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
   @JsonKey(name: 'poster_path')
-  final String posterPath;
+  final String? posterPath;
   @override
   @JsonKey(name: 'season_number')
-  final String seasonNumber;
+  final int seasonNumber;
+  @override
+  @JsonKey(name: 'air_date')
+  final String airDate;
 
   @override
   String toString() {
-    return 'Season(episodeCount: $episodeCount, id: $id, name: $name, posterPath: $posterPath, seasonNumber: $seasonNumber)';
+    return 'Season(episodeCount: $episodeCount, id: $id, name: $name, posterPath: $posterPath, seasonNumber: $seasonNumber, airDate: $airDate)';
   }
 
   @override
@@ -192,13 +210,14 @@ class _$SeasonImpl implements _Season {
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
             (identical(other.seasonNumber, seasonNumber) ||
-                other.seasonNumber == seasonNumber));
+                other.seasonNumber == seasonNumber) &&
+            (identical(other.airDate, airDate) || other.airDate == airDate));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, episodeCount, id, name, posterPath, seasonNumber);
+      runtimeType, episodeCount, id, name, posterPath, seasonNumber, airDate);
 
   @JsonKey(ignore: true)
   @override
@@ -216,28 +235,31 @@ class _$SeasonImpl implements _Season {
 
 abstract class _Season implements Season {
   const factory _Season(
-          {@JsonKey(name: 'episode_count') required final String episodeCount,
-          required final String id,
-          required final String name,
-          @JsonKey(name: 'poster_path') required final String posterPath,
-          @JsonKey(name: 'season_number') required final String seasonNumber}) =
-      _$SeasonImpl;
+      {@JsonKey(name: 'episode_count') required final int episodeCount,
+      required final int id,
+      required final String name,
+      @JsonKey(name: 'poster_path') final String? posterPath,
+      @JsonKey(name: 'season_number') required final int seasonNumber,
+      @JsonKey(name: 'air_date') required final String airDate}) = _$SeasonImpl;
 
   factory _Season.fromJson(Map<String, dynamic> json) = _$SeasonImpl.fromJson;
 
   @override
   @JsonKey(name: 'episode_count')
-  String get episodeCount;
+  int get episodeCount;
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
   @JsonKey(name: 'poster_path')
-  String get posterPath;
+  String? get posterPath;
   @override
   @JsonKey(name: 'season_number')
-  String get seasonNumber;
+  int get seasonNumber;
+  @override
+  @JsonKey(name: 'air_date')
+  String get airDate;
   @override
   @JsonKey(ignore: true)
   _$$SeasonImplCopyWith<_$SeasonImpl> get copyWith =>

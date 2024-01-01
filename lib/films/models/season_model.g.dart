@@ -7,11 +7,12 @@ part of 'season_model.dart';
 // **************************************************************************
 
 _$SeasonImpl _$$SeasonImplFromJson(Map<String, dynamic> json) => _$SeasonImpl(
-      episodeCount: json['episode_count'] as String,
-      id: json['id'] as String,
+      episodeCount: json['episode_count'] as int,
+      id: json['id'] as int,
       name: json['name'] as String,
-      posterPath: json['poster_path'] as String,
-      seasonNumber: json['season_number'] as String,
+      posterPath: json['poster_path'] as String?,
+      seasonNumber: json['season_number'] as int,
+      airDate: json['air_date'] as String,
     );
 
 Map<String, dynamic> _$$SeasonImplToJson(_$SeasonImpl instance) =>
@@ -21,4 +22,5 @@ Map<String, dynamic> _$$SeasonImplToJson(_$SeasonImpl instance) =>
       'name': instance.name,
       'poster_path': instance.posterPath,
       'season_number': instance.seasonNumber,
+      'air_date': instance.airDate,
     };

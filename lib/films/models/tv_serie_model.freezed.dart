@@ -20,15 +20,15 @@ Serie _$SerieFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Serie {
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get overview => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   List<Genre> get genres => throw _privateConstructorUsedError;
   @JsonKey(name: 'backdrop_path')
   String get backdropPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   String get posterPath => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get overview => throw _privateConstructorUsedError;
   @JsonKey(name: 'episode_run_time')
   String get episodeRunTime => throw _privateConstructorUsedError;
   List<Season> get seasons => throw _privateConstructorUsedError;
@@ -46,13 +46,13 @@ abstract class $SerieCopyWith<$Res> {
       _$SerieCopyWithImpl<$Res, Serie>;
   @useResult
   $Res call(
-      {String status,
+      {String id,
+      String name,
+      String overview,
+      String status,
       List<Genre> genres,
       @JsonKey(name: 'backdrop_path') String backdropPath,
       @JsonKey(name: 'poster_path') String posterPath,
-      String id,
-      String name,
-      String overview,
       @JsonKey(name: 'episode_run_time') String episodeRunTime,
       List<Season> seasons,
       @JsonKey(name: 'vote_average') String voteAverage});
@@ -71,18 +71,30 @@ class _$SerieCopyWithImpl<$Res, $Val extends Serie>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? overview = null,
     Object? status = null,
     Object? genres = null,
     Object? backdropPath = null,
     Object? posterPath = null,
-    Object? id = null,
-    Object? name = null,
-    Object? overview = null,
     Object? episodeRunTime = null,
     Object? seasons = null,
     Object? voteAverage = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      overview: null == overview
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
+              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -98,18 +110,6 @@ class _$SerieCopyWithImpl<$Res, $Val extends Serie>
       posterPath: null == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      overview: null == overview
-          ? _value.overview
-          : overview // ignore: cast_nullable_to_non_nullable
               as String,
       episodeRunTime: null == episodeRunTime
           ? _value.episodeRunTime
@@ -135,13 +135,13 @@ abstract class _$$SerieImplCopyWith<$Res> implements $SerieCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String status,
+      {String id,
+      String name,
+      String overview,
+      String status,
       List<Genre> genres,
       @JsonKey(name: 'backdrop_path') String backdropPath,
       @JsonKey(name: 'poster_path') String posterPath,
-      String id,
-      String name,
-      String overview,
       @JsonKey(name: 'episode_run_time') String episodeRunTime,
       List<Season> seasons,
       @JsonKey(name: 'vote_average') String voteAverage});
@@ -158,18 +158,30 @@ class __$$SerieImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? overview = null,
     Object? status = null,
     Object? genres = null,
     Object? backdropPath = null,
     Object? posterPath = null,
-    Object? id = null,
-    Object? name = null,
-    Object? overview = null,
     Object? episodeRunTime = null,
     Object? seasons = null,
     Object? voteAverage = null,
   }) {
     return _then(_$SerieImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      overview: null == overview
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
+              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -185,18 +197,6 @@ class __$$SerieImplCopyWithImpl<$Res>
       posterPath: null == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      overview: null == overview
-          ? _value.overview
-          : overview // ignore: cast_nullable_to_non_nullable
               as String,
       episodeRunTime: null == episodeRunTime
           ? _value.episodeRunTime
@@ -218,13 +218,13 @@ class __$$SerieImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SerieImpl implements _Serie {
   const _$SerieImpl(
-      {required this.status,
+      {required this.id,
+      required this.name,
+      required this.overview,
+      required this.status,
       required final List<Genre> genres,
       @JsonKey(name: 'backdrop_path') required this.backdropPath,
       @JsonKey(name: 'poster_path') required this.posterPath,
-      required this.id,
-      required this.name,
-      required this.overview,
       @JsonKey(name: 'episode_run_time') required this.episodeRunTime,
       required final List<Season> seasons,
       @JsonKey(name: 'vote_average') required this.voteAverage})
@@ -234,6 +234,12 @@ class _$SerieImpl implements _Serie {
   factory _$SerieImpl.fromJson(Map<String, dynamic> json) =>
       _$$SerieImplFromJson(json);
 
+  @override
+  final String id;
+  @override
+  final String name;
+  @override
+  final String overview;
   @override
   final String status;
   final List<Genre> _genres;
@@ -251,12 +257,6 @@ class _$SerieImpl implements _Serie {
   @JsonKey(name: 'poster_path')
   final String posterPath;
   @override
-  final String id;
-  @override
-  final String name;
-  @override
-  final String overview;
-  @override
   @JsonKey(name: 'episode_run_time')
   final String episodeRunTime;
   final List<Season> _seasons;
@@ -273,7 +273,7 @@ class _$SerieImpl implements _Serie {
 
   @override
   String toString() {
-    return 'Serie(status: $status, genres: $genres, backdropPath: $backdropPath, posterPath: $posterPath, id: $id, name: $name, overview: $overview, episodeRunTime: $episodeRunTime, seasons: $seasons, voteAverage: $voteAverage)';
+    return 'Serie(id: $id, name: $name, overview: $overview, status: $status, genres: $genres, backdropPath: $backdropPath, posterPath: $posterPath, episodeRunTime: $episodeRunTime, seasons: $seasons, voteAverage: $voteAverage)';
   }
 
   @override
@@ -281,16 +281,16 @@ class _$SerieImpl implements _Serie {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SerieImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.overview, overview) ||
+                other.overview == overview) &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._genres, _genres) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.overview, overview) ||
-                other.overview == overview) &&
             (identical(other.episodeRunTime, episodeRunTime) ||
                 other.episodeRunTime == episodeRunTime) &&
             const DeepCollectionEquality().equals(other._seasons, _seasons) &&
@@ -302,13 +302,13 @@ class _$SerieImpl implements _Serie {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
+      name,
+      overview,
       status,
       const DeepCollectionEquality().hash(_genres),
       backdropPath,
       posterPath,
-      id,
-      name,
-      overview,
       episodeRunTime,
       const DeepCollectionEquality().hash(_seasons),
       voteAverage);
@@ -329,13 +329,13 @@ class _$SerieImpl implements _Serie {
 
 abstract class _Serie implements Serie {
   const factory _Serie(
-      {required final String status,
+      {required final String id,
+      required final String name,
+      required final String overview,
+      required final String status,
       required final List<Genre> genres,
       @JsonKey(name: 'backdrop_path') required final String backdropPath,
       @JsonKey(name: 'poster_path') required final String posterPath,
-      required final String id,
-      required final String name,
-      required final String overview,
       @JsonKey(name: 'episode_run_time') required final String episodeRunTime,
       required final List<Season> seasons,
       @JsonKey(name: 'vote_average')
@@ -343,6 +343,12 @@ abstract class _Serie implements Serie {
 
   factory _Serie.fromJson(Map<String, dynamic> json) = _$SerieImpl.fromJson;
 
+  @override
+  String get id;
+  @override
+  String get name;
+  @override
+  String get overview;
   @override
   String get status;
   @override
@@ -353,12 +359,6 @@ abstract class _Serie implements Serie {
   @override
   @JsonKey(name: 'poster_path')
   String get posterPath;
-  @override
-  String get id;
-  @override
-  String get name;
-  @override
-  String get overview;
   @override
   @JsonKey(name: 'episode_run_time')
   String get episodeRunTime;

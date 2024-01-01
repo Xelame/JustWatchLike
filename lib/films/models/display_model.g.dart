@@ -20,18 +20,18 @@ Map<String, dynamic> _$$DisplayImplToJson(_$DisplayImpl instance) =>
 
 _$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       id: json['id'] as int,
-      name: json['name'] as String?,
       title: json['title'] as String?,
-      posterPath: json['poster_path'] as String,
-      voteAverage: (json['vote_average'] as num).toDouble(),
+      name: json['name'] as String?,
+      posterPath: json['poster_path'] as String?,
+      voteAverage: (json['vote_average'] as num?)?.toDouble(),
       mediaType: json['media_type'] as String,
     );
 
 Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
       'title': instance.title,
+      'name': instance.name,
       'poster_path': instance.posterPath,
       'vote_average': instance.voteAverage,
       'media_type': instance.mediaType,
