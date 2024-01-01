@@ -1,8 +1,6 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:just_watch_like/main.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -15,12 +13,11 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
 
   String _email = "";
   String _password = "";
-
 
   @override
   Widget build(BuildContext context) {
@@ -28,23 +25,22 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         title: const Text('Register'),
       ),
-      body : Center(
+      body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child : Form(
-            key : _formKey,
+          child: Form(
+            key: _formKey,
             child: Column(
-              mainAxisAlignment : MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))
-                    ),
-                    labelText: 'Email'
-                    ),
+                      border: OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.0))),
+                      labelText: 'Email'),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
@@ -64,11 +60,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: _passController,
                   obscureText: true,
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))
-                    ),
-                    labelText: 'Password'
-                    ),
+                      border: OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.0))),
+                      labelText: 'Password'),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your password';
@@ -92,30 +87,50 @@ class _RegisterPageState extends State<RegisterPage> {
                           email: _email,
                           password: _password,
                         );
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Successfully signed up'),
-                          ),
-                        );
-                        // TODO : ajouter la redirection
+
+                        String? user = _auth.currentUser!.email;
+
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Successfully signed up $user'),
+                            ),
+                          );
+                          // Reset the navigator route stack by pushing a new route
+                          // and removing all previous routes.
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyTestPage()),
+                            (route) => false, // Remove all routes in the stack
+                          );
+                        }
                       } on FirebaseAuthException catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(e.message!),
-                          ),
-                        );
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(e.message!),
+                            ),
+                          );
+                        }
                       } catch (e) {
-                        print(e);
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(e.toString()),
+                            ),
+                          );
+                        }
                       }
                     }
                   },
                   child: const Text('Register'),
                 ),
               ],
-            )
-            )
-          )
-        )
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
