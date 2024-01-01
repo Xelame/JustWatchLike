@@ -9,11 +9,12 @@ part 'season_model.g.dart';
 @freezed
 class Season with _$Season {
   const factory Season({
-    @JsonKey(name: 'episode_count') required String episodeCount,
-    required String id,
+    @JsonKey(name: 'episode_count') required int episodeCount,
+    required int id,
     required String name,
-    @JsonKey(name: 'poster_path') required String posterPath,
-    @JsonKey(name: 'season_number') required String seasonNumber,
+    @JsonKey(name: 'poster_path') String? posterPath,
+    @JsonKey(name: 'season_number') required int seasonNumber,
+    @JsonKey(name: 'air_date') required String airDate,
   }) = _Season;
 
   // optional: Since our Person class is serializable, we must add this line.

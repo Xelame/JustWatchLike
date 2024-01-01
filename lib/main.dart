@@ -4,8 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_watch_like/Navigation/application_menu.dart';
 import 'package:just_watch_like/Navigation/navigation_menu.dart';
 import 'package:just_watch_like/firebase_options.dart';
-// import 'films/pages/list_film_page.dart';
-import 'films/pages/details_page.dart';
+import 'films/pages/list_film_page.dart';
+
+final textSearchStateProvider = StateProvider<String>((ref) => "");
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,24 +16,6 @@ void main() async {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-final testScreens = <Widget>[
-  Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      DetailsPage(),
-    ],
-  ),
-  Container(
-    color: Colors.green,
-  ),
-  Container(
-    color: Colors.blue,
-  ),
-  Container(
-    color: Colors.yellow,
-  ),
-];
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -40,7 +23,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Just watch like',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
@@ -56,13 +40,50 @@ class MyTestPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    String searchText = ref.watch(textSearchStateProvider);
+    final testScreens = <Widget>[
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(child: FilmsList(url: searchText)),
+        ],
+      ),
+      Container(
+        color: Colors.green,
+      ),
+      Container(
+        color: Colors.blue,
+      ),
+      Container(
+        color: Colors.yellow,
+      ),
+    ];
+
     int selectedIndex = ref.watch(destinationStateProvider);
+
+    bool isSearching = ref.watch(searchStateProvider);
 
     return Scaffold(
       appBar: const AppMenu(title: 'JustWatchLike'),
       body: Center(
-        child: testScreens[selectedIndex],
-      ),
+          child: Stack(children: [
+        testScreens[selectedIndex],
+        if (isSearching)
+          Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SearchBar(
+                leading: const Icon(Icons.search),
+                onSubmitted: (value) {
+                  ref.read(searchStateProvider.notifier).state = false;
+                  if (value.isNotEmpty) {
+                    ref.read(textSearchStateProvider.notifier).state =
+                        "https://api.themoviedb.org/3/search/multi?query=$value";
+                  } else {
+                    ref.read(textSearchStateProvider.notifier).state = "";
+                  }
+                },
+              )),
+      ])),
       bottomNavigationBar: const NavigationMenu(),
     );
   }
