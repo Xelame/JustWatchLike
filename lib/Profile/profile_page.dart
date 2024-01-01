@@ -11,30 +11,51 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilPageState extends State<ProfilePage> {
+  List<String> watchlist = [
+    'Movie 1',
+    'Movie 2',
+    'Movie 3',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title : Text(widget.userEmail),
+        title: Text(widget.userEmail),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("Profil Page"),
-            const SizedBox(
-              height: 20,
+      body: Column(
+        children: [
+          const Text("Profil Page"),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Deconnexion'),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            'Watchlist:',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Go back!'),
-            ),
-          ],
-        ),
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: watchlist.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(watchlist[index]),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
-
-} 
+}
