@@ -1,10 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:just_watch_like/Navigation/NavBar.dart';
 import 'package:just_watch_like/Navigation/application_menu.dart';
+import 'package:just_watch_like/Navigation/navigation_menu.dart';
 import 'package:just_watch_like/firebase_options.dart';
-
+// import 'films/pages/list_film_page.dart';
+import 'films/pages/details_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,8 +16,11 @@ void main() async {
 }
 
 final testScreens = <Widget>[
-  Container(
-    color: Colors.red,
+  Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      DetailsPage(),
+    ],
   ),
   Container(
     color: Colors.green,
