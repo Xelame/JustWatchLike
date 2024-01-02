@@ -5,8 +5,10 @@ import 'package:just_watch_like/Navigation/application_menu.dart';
 import 'package:just_watch_like/Navigation/navigation_menu.dart';
 import 'package:just_watch_like/firebase_options.dart';
 import 'films/pages/list_film_page.dart';
+import 'dart:ui';
 
 final textSearchStateProvider = StateProvider<String>((ref) => "");
+final localeStateProvider = StateProvider<Locale>((ref) => window.locale);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,20 +42,19 @@ class MyTestPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    Locale locale = ref.watch(localeStateProvider);
     String searchText = ref.watch(textSearchStateProvider);
     final testScreens = <Widget>[
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+      //Column(
+        //mainAxisAlignment: MainAxisAlignment.center,
+        //children: <Widget>[
           Expanded(child: FilmsList(url: searchText)),
-        ],
-      ),
-      Container(
-        color: Colors.green,
-      ),
-      Container(
-        color: Colors.blue,
-      ),
+        //],
+      //),
+      Expanded(child: FilmsList(url: "https://api.themoviedb.org/3/movie/upcoming?language=${locale.languageCode}-${locale.countryCode}")),
+      
+      Expanded(child: FilmsList(url: "https://api.themoviedb.org/3/movie/popular?language=${locale.languageCode}-${locale.countryCode}")),
+
       Container(
         color: Colors.yellow,
       ),
@@ -77,7 +78,7 @@ class MyTestPage extends ConsumerWidget {
                   ref.read(searchStateProvider.notifier).state = false;
                   if (value.isNotEmpty) {
                     ref.read(textSearchStateProvider.notifier).state =
-                        "https://api.themoviedb.org/3/search/multi?query=$value";
+                        "https://api.themoviedb.org/3/search/multi?query=$value&language=${locale.languageCode}-${locale.countryCode}";
                   } else {
                     ref.read(textSearchStateProvider.notifier).state = "";
                   }

@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import '../services/list_service.dart';
 import 'details_page.dart';
 import '../models/display_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:just_watch_like/main.dart';
 
-class FilmsList extends StatefulWidget {
-  final String? url;
-  const FilmsList({Key? key, this.url}) : super(key: key);
-  @override
-  _FilmsListState createState() => _FilmsListState();
-}
+class FilmsList extends ConsumerWidget {
+  final String url;
+  FilmsList({Key? key, required this.url}) : super(key: key);
 
-class _FilmsListState extends State<FilmsList> {
   final listService = ListService();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    Locale locale = ref.watch(localeStateProvider);
     return FutureBuilder<Display>(
-      future: listService.fetchList(widget.url ?? "https://api.themoviedb.org/3/trending/all/week"),
+      future: listService.fetchList(url.isNotEmpty ? url : "https://api.themoviedb.org/3/trending/all/week?language=${locale.languageCode}-${locale.countryCode}"),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const CircularProgressIndicator();
@@ -46,7 +45,7 @@ class _FilmsListState extends State<FilmsList> {
                       MaterialPageRoute(
                         builder: (context) => DetailsPage(
                           id: result.id,
-                          mediaType: result.mediaType,),
+                          mediaType: result.mediaType ?? (url.contains("movie") ? "movie" : "tv"),),
                       ),);
                   },
                   child :Column(

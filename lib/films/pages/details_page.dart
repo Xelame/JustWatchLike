@@ -1,23 +1,30 @@
 import 'package:flutter/material.dart';
+
 import '../services/detail_service.dart';
 import '../models/details_model.dart';
+import '../services/availability_service.dart';
+import '../models/availability_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:just_watch_like/main.dart';
 
-class DetailsPage extends StatelessWidget {
+class DetailsPage extends ConsumerWidget {
   final int id;
   final String mediaType;
   DetailsPage({Key? key, required this.id, required this.mediaType})
       : super(key: key);
   final detailService = DetailService();
+  final availabilityService = AvailabilityService();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    Locale locale = ref.watch(localeStateProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Détails'),
       ),
       body: FutureBuilder<Details>(
-        future: detailService
-            .fetchDetail("https://api.themoviedb.org/3/$mediaType/$id"),
+        future: detailService.fetchDetail(
+            "https://api.themoviedb.org/3/$mediaType/$id?language=${locale.languageCode}-${locale.countryCode}"),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
@@ -85,6 +92,32 @@ class DetailsPage extends StatelessWidget {
                               ],
                             )))
                         .toList(),
+                  FutureBuilder<Display>(
+                      future: availabilityService.fetchAvailability(
+                          "https://streaming-availability.p.rapidapi.com/get?tmdb_id=tv/1396"),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return CircularProgressIndicator();
+                        }
+
+                        if (snapshot.hasError) {
+                          return Text('Erreur : ${snapshot.error}');
+                        }
+                        final services = snapshot.data!.result.streamingInfo.countries?['fr']?.services;
+                        if(snapshot.data!.result.streamingInfo.countries != null){
+                          return ListView.builder(
+                          itemCount: services!.length,
+                          itemBuilder: (context, index) {
+                            final service = services[index];
+                            return ListTile(
+                              title: Text(service.service),
+                            );
+                          },
+                        );
+                        }
+                        else return const Text('Aucune donnée disponible');
+                      })
                 ],
               ),
             ),

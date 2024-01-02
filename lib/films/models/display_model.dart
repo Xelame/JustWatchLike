@@ -21,7 +21,7 @@ class Result with _$Result {
     String? name,
     @JsonKey(name: 'poster_path') String? posterPath,
     @JsonKey(name: 'vote_average') double? voteAverage,
-    @JsonKey(name: 'media_type') required String mediaType,
+    @JsonKey(name: 'media_type') String? mediaType,
   }) = _Result;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
