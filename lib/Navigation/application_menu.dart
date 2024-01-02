@@ -24,7 +24,7 @@ class AppMenu extends ConsumerWidget implements PreferredSizeWidget {
             ref.read(searchStateProvider.notifier).state = !isSearching;
           },
         ),
-        if (FirebaseAuth.instance.currentUser != null)
+        if (FirebaseAuth.instance.currentUser != null) ...[
           IconButton(
             icon: const Icon(Icons.logout),
             tooltip: 'Disconnect',
@@ -38,8 +38,8 @@ class AppMenu extends ConsumerWidget implements PreferredSizeWidget {
                 (route) => false, // Remove all routes in the stack
               );
             },
-          ),
-        if (FirebaseAuth.instance.currentUser == null)
+          )
+        ] else if (FirebaseAuth.instance.currentUser == null)
           IconButton(
             icon: const Icon(Icons.manage_accounts_rounded),
             tooltip: 'Account',
@@ -51,7 +51,7 @@ class AppMenu extends ConsumerWidget implements PreferredSizeWidget {
                 ),
               );
             },
-          ),
+          )
       ],
     );
   }

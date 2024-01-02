@@ -43,6 +43,7 @@ class DetailsPage extends ConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.network(
@@ -106,15 +107,17 @@ class DetailsPage extends ConsumerWidget {
                         }
                         final services = snapshot.data!.result.streamingInfo.fr;
                         if (services != null) {
-                          return Card(
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: services.length,
-                              itemBuilder: (context, index) {
-                                final service = services[index];
-                                return Text(service.service);
-                              },
-                            ),
+                          return Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              for (final service in services)
+                                Card(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(service.service),
+                                  ),
+                                )
+                            ],
                           );
                         } else {
                           return const Text("Aucun service disponible");
