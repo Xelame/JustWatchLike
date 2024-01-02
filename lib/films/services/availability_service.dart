@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/availability_model.dart';
 
 class AvailabilityService {
-  final String token = "031edfec69mshf72cec4f3a0b9c4p158e46jsnaf5b3e103646";
+  final String token = "f9cb53c0ecmsh70e5f231c56f2a1p18b901jsnb091cc9c030";
   Future<Availability> fetchAvailability(String baseUrl) async {
     final response = await http.get(Uri.parse(baseUrl), headers: {
       'Content-Type': 'application/json',
