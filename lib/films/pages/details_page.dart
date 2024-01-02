@@ -92,31 +92,33 @@ class DetailsPage extends ConsumerWidget {
                               ],
                             )))
                         .toList(),
-                  FutureBuilder<Display>(
+                  FutureBuilder<Availability>(
                       future: availabilityService.fetchAvailability(
-                          "https://streaming-availability.p.rapidapi.com/get?tmdb_id=tv/1396"),
+                          "https://streaming-availability.p.rapidapi.com/get?tmdb_id=movie/$id"),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return CircularProgressIndicator();
+                          return const CircularProgressIndicator();
                         }
 
                         if (snapshot.hasError) {
                           return Text('Erreur : ${snapshot.error}');
                         }
-                        final services = snapshot.data!.result.streamingInfo.countries?['fr']?.services;
-                        if(snapshot.data!.result.streamingInfo.countries != null){
-                          return ListView.builder(
-                          itemCount: services!.length,
-                          itemBuilder: (context, index) {
-                            final service = services[index];
-                            return ListTile(
-                              title: Text(service.service),
-                            );
-                          },
-                        );
+                        final services = snapshot.data!.result.streamingInfo.fr;
+                        if (services != null) {
+                          return Card(
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: services.length,
+                              itemBuilder: (context, index) {
+                                final service = services[index];
+                                return Text(service.service);
+                              },
+                            ),
+                          );
+                        } else {
+                          return const Text("Aucun service disponible");
                         }
-                        else return const Text('Aucune donnée disponible');
                       })
                 ],
               ),

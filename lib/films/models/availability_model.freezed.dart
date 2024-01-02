@@ -14,33 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Display _$DisplayFromJson(Map<String, dynamic> json) {
-  return _Display.fromJson(json);
+Availability _$AvailabilityFromJson(Map<String, dynamic> json) {
+  return _Availability.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Display {
-  Result get result => throw _privateConstructorUsedError;
+mixin _$Availability {
+  Result2 get result => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DisplayCopyWith<Display> get copyWith => throw _privateConstructorUsedError;
+  $AvailabilityCopyWith<Availability> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DisplayCopyWith<$Res> {
-  factory $DisplayCopyWith(Display value, $Res Function(Display) then) =
-      _$DisplayCopyWithImpl<$Res, Display>;
+abstract class $AvailabilityCopyWith<$Res> {
+  factory $AvailabilityCopyWith(
+          Availability value, $Res Function(Availability) then) =
+      _$AvailabilityCopyWithImpl<$Res, Availability>;
   @useResult
-  $Res call({Result result});
+  $Res call({Result2 result});
 
-  $ResultCopyWith<$Res> get result;
+  $Result2CopyWith<$Res> get result;
 }
 
 /// @nodoc
-class _$DisplayCopyWithImpl<$Res, $Val extends Display>
-    implements $DisplayCopyWith<$Res> {
-  _$DisplayCopyWithImpl(this._value, this._then);
+class _$AvailabilityCopyWithImpl<$Res, $Val extends Availability>
+    implements $AvailabilityCopyWith<$Res> {
+  _$AvailabilityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -56,38 +58,39 @@ class _$DisplayCopyWithImpl<$Res, $Val extends Display>
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as Result,
+              as Result2,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ResultCopyWith<$Res> get result {
-    return $ResultCopyWith<$Res>(_value.result, (value) {
+  $Result2CopyWith<$Res> get result {
+    return $Result2CopyWith<$Res>(_value.result, (value) {
       return _then(_value.copyWith(result: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$DisplayImplCopyWith<$Res> implements $DisplayCopyWith<$Res> {
-  factory _$$DisplayImplCopyWith(
-          _$DisplayImpl value, $Res Function(_$DisplayImpl) then) =
-      __$$DisplayImplCopyWithImpl<$Res>;
+abstract class _$$AvailabilityImplCopyWith<$Res>
+    implements $AvailabilityCopyWith<$Res> {
+  factory _$$AvailabilityImplCopyWith(
+          _$AvailabilityImpl value, $Res Function(_$AvailabilityImpl) then) =
+      __$$AvailabilityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Result result});
+  $Res call({Result2 result});
 
   @override
-  $ResultCopyWith<$Res> get result;
+  $Result2CopyWith<$Res> get result;
 }
 
 /// @nodoc
-class __$$DisplayImplCopyWithImpl<$Res>
-    extends _$DisplayCopyWithImpl<$Res, _$DisplayImpl>
-    implements _$$DisplayImplCopyWith<$Res> {
-  __$$DisplayImplCopyWithImpl(
-      _$DisplayImpl _value, $Res Function(_$DisplayImpl) _then)
+class __$$AvailabilityImplCopyWithImpl<$Res>
+    extends _$AvailabilityCopyWithImpl<$Res, _$AvailabilityImpl>
+    implements _$$AvailabilityImplCopyWith<$Res> {
+  __$$AvailabilityImplCopyWithImpl(
+      _$AvailabilityImpl _value, $Res Function(_$AvailabilityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,36 +98,36 @@ class __$$DisplayImplCopyWithImpl<$Res>
   $Res call({
     Object? result = null,
   }) {
-    return _then(_$DisplayImpl(
+    return _then(_$AvailabilityImpl(
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as Result,
+              as Result2,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DisplayImpl implements _Display {
-  const _$DisplayImpl({required this.result});
+class _$AvailabilityImpl implements _Availability {
+  const _$AvailabilityImpl({required this.result});
 
-  factory _$DisplayImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DisplayImplFromJson(json);
+  factory _$AvailabilityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AvailabilityImplFromJson(json);
 
   @override
-  final Result result;
+  final Result2 result;
 
   @override
   String toString() {
-    return 'Display(result: $result)';
+    return 'Availability(result: $result)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DisplayImpl &&
+            other is _$AvailabilityImpl &&
             (identical(other.result, result) || other.result == result));
   }
 
@@ -135,47 +138,49 @@ class _$DisplayImpl implements _Display {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DisplayImplCopyWith<_$DisplayImpl> get copyWith =>
-      __$$DisplayImplCopyWithImpl<_$DisplayImpl>(this, _$identity);
+  _$$AvailabilityImplCopyWith<_$AvailabilityImpl> get copyWith =>
+      __$$AvailabilityImplCopyWithImpl<_$AvailabilityImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DisplayImplToJson(
+    return _$$AvailabilityImplToJson(
       this,
     );
   }
 }
 
-abstract class _Display implements Display {
-  const factory _Display({required final Result result}) = _$DisplayImpl;
+abstract class _Availability implements Availability {
+  const factory _Availability({required final Result2 result}) =
+      _$AvailabilityImpl;
 
-  factory _Display.fromJson(Map<String, dynamic> json) = _$DisplayImpl.fromJson;
+  factory _Availability.fromJson(Map<String, dynamic> json) =
+      _$AvailabilityImpl.fromJson;
 
   @override
-  Result get result;
+  Result2 get result;
   @override
   @JsonKey(ignore: true)
-  _$$DisplayImplCopyWith<_$DisplayImpl> get copyWith =>
+  _$$AvailabilityImplCopyWith<_$AvailabilityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Result _$ResultFromJson(Map<String, dynamic> json) {
-  return _Result.fromJson(json);
+Result2 _$Result2FromJson(Map<String, dynamic> json) {
+  return _Result2.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Result {
+mixin _$Result2 {
   StreamingInfo get streamingInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ResultCopyWith<Result> get copyWith => throw _privateConstructorUsedError;
+  $Result2CopyWith<Result2> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ResultCopyWith<$Res> {
-  factory $ResultCopyWith(Result value, $Res Function(Result) then) =
-      _$ResultCopyWithImpl<$Res, Result>;
+abstract class $Result2CopyWith<$Res> {
+  factory $Result2CopyWith(Result2 value, $Res Function(Result2) then) =
+      _$Result2CopyWithImpl<$Res, Result2>;
   @useResult
   $Res call({StreamingInfo streamingInfo});
 
@@ -183,9 +188,9 @@ abstract class $ResultCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ResultCopyWithImpl<$Res, $Val extends Result>
-    implements $ResultCopyWith<$Res> {
-  _$ResultCopyWithImpl(this._value, this._then);
+class _$Result2CopyWithImpl<$Res, $Val extends Result2>
+    implements $Result2CopyWith<$Res> {
+  _$Result2CopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -215,10 +220,10 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
 }
 
 /// @nodoc
-abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$ResultImplCopyWith(
-          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
-      __$$ResultImplCopyWithImpl<$Res>;
+abstract class _$$Result2ImplCopyWith<$Res> implements $Result2CopyWith<$Res> {
+  factory _$$Result2ImplCopyWith(
+          _$Result2Impl value, $Res Function(_$Result2Impl) then) =
+      __$$Result2ImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({StreamingInfo streamingInfo});
@@ -228,11 +233,11 @@ abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ResultImplCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
-    implements _$$ResultImplCopyWith<$Res> {
-  __$$ResultImplCopyWithImpl(
-      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
+class __$$Result2ImplCopyWithImpl<$Res>
+    extends _$Result2CopyWithImpl<$Res, _$Result2Impl>
+    implements _$$Result2ImplCopyWith<$Res> {
+  __$$Result2ImplCopyWithImpl(
+      _$Result2Impl _value, $Res Function(_$Result2Impl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -240,7 +245,7 @@ class __$$ResultImplCopyWithImpl<$Res>
   $Res call({
     Object? streamingInfo = null,
   }) {
-    return _then(_$ResultImpl(
+    return _then(_$Result2Impl(
       streamingInfo: null == streamingInfo
           ? _value.streamingInfo
           : streamingInfo // ignore: cast_nullable_to_non_nullable
@@ -251,25 +256,25 @@ class __$$ResultImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ResultImpl implements _Result {
-  const _$ResultImpl({required this.streamingInfo});
+class _$Result2Impl implements _Result2 {
+  const _$Result2Impl({required this.streamingInfo});
 
-  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ResultImplFromJson(json);
+  factory _$Result2Impl.fromJson(Map<String, dynamic> json) =>
+      _$$Result2ImplFromJson(json);
 
   @override
   final StreamingInfo streamingInfo;
 
   @override
   String toString() {
-    return 'Result(streamingInfo: $streamingInfo)';
+    return 'Result2(streamingInfo: $streamingInfo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ResultImpl &&
+            other is _$Result2Impl &&
             (identical(other.streamingInfo, streamingInfo) ||
                 other.streamingInfo == streamingInfo));
   }
@@ -281,28 +286,28 @@ class _$ResultImpl implements _Result {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
-      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
+  _$$Result2ImplCopyWith<_$Result2Impl> get copyWith =>
+      __$$Result2ImplCopyWithImpl<_$Result2Impl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ResultImplToJson(
+    return _$$Result2ImplToJson(
       this,
     );
   }
 }
 
-abstract class _Result implements Result {
-  const factory _Result({required final StreamingInfo streamingInfo}) =
-      _$ResultImpl;
+abstract class _Result2 implements Result2 {
+  const factory _Result2({required final StreamingInfo streamingInfo}) =
+      _$Result2Impl;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
+  factory _Result2.fromJson(Map<String, dynamic> json) = _$Result2Impl.fromJson;
 
   @override
   StreamingInfo get streamingInfo;
   @override
   @JsonKey(ignore: true)
-  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+  _$$Result2ImplCopyWith<_$Result2Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -312,7 +317,20 @@ StreamingInfo _$StreamingInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StreamingInfo {
-  Map<String, Country>? get countries => throw _privateConstructorUsedError;
+  List<Service>? get fr => throw _privateConstructorUsedError;
+  List<Service>? get en => throw _privateConstructorUsedError;
+  List<Service>? get us => throw _privateConstructorUsedError;
+  List<Service>? get de => throw _privateConstructorUsedError;
+  List<Service>? get es => throw _privateConstructorUsedError;
+  List<Service>? get it => throw _privateConstructorUsedError;
+  List<Service>? get pt => throw _privateConstructorUsedError;
+  List<Service>? get ru => throw _privateConstructorUsedError;
+  List<Service>? get ja => throw _privateConstructorUsedError;
+  List<Service>? get ko => throw _privateConstructorUsedError;
+  List<Service>? get hi => throw _privateConstructorUsedError;
+  List<Service>? get zh => throw _privateConstructorUsedError;
+  List<Service>? get th => throw _privateConstructorUsedError;
+  List<Service>? get ta => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -326,7 +344,21 @@ abstract class $StreamingInfoCopyWith<$Res> {
           StreamingInfo value, $Res Function(StreamingInfo) then) =
       _$StreamingInfoCopyWithImpl<$Res, StreamingInfo>;
   @useResult
-  $Res call({Map<String, Country>? countries});
+  $Res call(
+      {List<Service>? fr,
+      List<Service>? en,
+      List<Service>? us,
+      List<Service>? de,
+      List<Service>? es,
+      List<Service>? it,
+      List<Service>? pt,
+      List<Service>? ru,
+      List<Service>? ja,
+      List<Service>? ko,
+      List<Service>? hi,
+      List<Service>? zh,
+      List<Service>? th,
+      List<Service>? ta});
 }
 
 /// @nodoc
@@ -342,13 +374,78 @@ class _$StreamingInfoCopyWithImpl<$Res, $Val extends StreamingInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? countries = freezed,
+    Object? fr = freezed,
+    Object? en = freezed,
+    Object? us = freezed,
+    Object? de = freezed,
+    Object? es = freezed,
+    Object? it = freezed,
+    Object? pt = freezed,
+    Object? ru = freezed,
+    Object? ja = freezed,
+    Object? ko = freezed,
+    Object? hi = freezed,
+    Object? zh = freezed,
+    Object? th = freezed,
+    Object? ta = freezed,
   }) {
     return _then(_value.copyWith(
-      countries: freezed == countries
-          ? _value.countries
-          : countries // ignore: cast_nullable_to_non_nullable
-              as Map<String, Country>?,
+      fr: freezed == fr
+          ? _value.fr
+          : fr // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      en: freezed == en
+          ? _value.en
+          : en // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      us: freezed == us
+          ? _value.us
+          : us // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      de: freezed == de
+          ? _value.de
+          : de // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      es: freezed == es
+          ? _value.es
+          : es // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      it: freezed == it
+          ? _value.it
+          : it // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      pt: freezed == pt
+          ? _value.pt
+          : pt // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      ru: freezed == ru
+          ? _value.ru
+          : ru // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      ja: freezed == ja
+          ? _value.ja
+          : ja // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      ko: freezed == ko
+          ? _value.ko
+          : ko // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      hi: freezed == hi
+          ? _value.hi
+          : hi // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      zh: freezed == zh
+          ? _value.zh
+          : zh // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      th: freezed == th
+          ? _value.th
+          : th // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      ta: freezed == ta
+          ? _value.ta
+          : ta // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
     ) as $Val);
   }
 }
@@ -361,7 +458,21 @@ abstract class _$$StreamingInfoImplCopyWith<$Res>
       __$$StreamingInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, Country>? countries});
+  $Res call(
+      {List<Service>? fr,
+      List<Service>? en,
+      List<Service>? us,
+      List<Service>? de,
+      List<Service>? es,
+      List<Service>? it,
+      List<Service>? pt,
+      List<Service>? ru,
+      List<Service>? ja,
+      List<Service>? ko,
+      List<Service>? hi,
+      List<Service>? zh,
+      List<Service>? th,
+      List<Service>? ta});
 }
 
 /// @nodoc
@@ -375,13 +486,78 @@ class __$$StreamingInfoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? countries = freezed,
+    Object? fr = freezed,
+    Object? en = freezed,
+    Object? us = freezed,
+    Object? de = freezed,
+    Object? es = freezed,
+    Object? it = freezed,
+    Object? pt = freezed,
+    Object? ru = freezed,
+    Object? ja = freezed,
+    Object? ko = freezed,
+    Object? hi = freezed,
+    Object? zh = freezed,
+    Object? th = freezed,
+    Object? ta = freezed,
   }) {
     return _then(_$StreamingInfoImpl(
-      countries: freezed == countries
-          ? _value._countries
-          : countries // ignore: cast_nullable_to_non_nullable
-              as Map<String, Country>?,
+      fr: freezed == fr
+          ? _value._fr
+          : fr // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      en: freezed == en
+          ? _value._en
+          : en // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      us: freezed == us
+          ? _value._us
+          : us // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      de: freezed == de
+          ? _value._de
+          : de // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      es: freezed == es
+          ? _value._es
+          : es // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      it: freezed == it
+          ? _value._it
+          : it // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      pt: freezed == pt
+          ? _value._pt
+          : pt // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      ru: freezed == ru
+          ? _value._ru
+          : ru // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      ja: freezed == ja
+          ? _value._ja
+          : ja // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      ko: freezed == ko
+          ? _value._ko
+          : ko // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      hi: freezed == hi
+          ? _value._hi
+          : hi // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      zh: freezed == zh
+          ? _value._zh
+          : zh // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      th: freezed == th
+          ? _value._th
+          : th // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
+      ta: freezed == ta
+          ? _value._ta
+          : ta // ignore: cast_nullable_to_non_nullable
+              as List<Service>?,
     ));
   }
 }
@@ -389,25 +565,182 @@ class __$$StreamingInfoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StreamingInfoImpl implements _StreamingInfo {
-  const _$StreamingInfoImpl({final Map<String, Country>? countries})
-      : _countries = countries;
+  const _$StreamingInfoImpl(
+      {final List<Service>? fr,
+      final List<Service>? en,
+      final List<Service>? us,
+      final List<Service>? de,
+      final List<Service>? es,
+      final List<Service>? it,
+      final List<Service>? pt,
+      final List<Service>? ru,
+      final List<Service>? ja,
+      final List<Service>? ko,
+      final List<Service>? hi,
+      final List<Service>? zh,
+      final List<Service>? th,
+      final List<Service>? ta})
+      : _fr = fr,
+        _en = en,
+        _us = us,
+        _de = de,
+        _es = es,
+        _it = it,
+        _pt = pt,
+        _ru = ru,
+        _ja = ja,
+        _ko = ko,
+        _hi = hi,
+        _zh = zh,
+        _th = th,
+        _ta = ta;
 
   factory _$StreamingInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$StreamingInfoImplFromJson(json);
 
-  final Map<String, Country>? _countries;
+  final List<Service>? _fr;
   @override
-  Map<String, Country>? get countries {
-    final value = _countries;
+  List<Service>? get fr {
+    final value = _fr;
     if (value == null) return null;
-    if (_countries is EqualUnmodifiableMapView) return _countries;
+    if (_fr is EqualUnmodifiableListView) return _fr;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _en;
+  @override
+  List<Service>? get en {
+    final value = _en;
+    if (value == null) return null;
+    if (_en is EqualUnmodifiableListView) return _en;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _us;
+  @override
+  List<Service>? get us {
+    final value = _us;
+    if (value == null) return null;
+    if (_us is EqualUnmodifiableListView) return _us;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _de;
+  @override
+  List<Service>? get de {
+    final value = _de;
+    if (value == null) return null;
+    if (_de is EqualUnmodifiableListView) return _de;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _es;
+  @override
+  List<Service>? get es {
+    final value = _es;
+    if (value == null) return null;
+    if (_es is EqualUnmodifiableListView) return _es;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _it;
+  @override
+  List<Service>? get it {
+    final value = _it;
+    if (value == null) return null;
+    if (_it is EqualUnmodifiableListView) return _it;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _pt;
+  @override
+  List<Service>? get pt {
+    final value = _pt;
+    if (value == null) return null;
+    if (_pt is EqualUnmodifiableListView) return _pt;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _ru;
+  @override
+  List<Service>? get ru {
+    final value = _ru;
+    if (value == null) return null;
+    if (_ru is EqualUnmodifiableListView) return _ru;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _ja;
+  @override
+  List<Service>? get ja {
+    final value = _ja;
+    if (value == null) return null;
+    if (_ja is EqualUnmodifiableListView) return _ja;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _ko;
+  @override
+  List<Service>? get ko {
+    final value = _ko;
+    if (value == null) return null;
+    if (_ko is EqualUnmodifiableListView) return _ko;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _hi;
+  @override
+  List<Service>? get hi {
+    final value = _hi;
+    if (value == null) return null;
+    if (_hi is EqualUnmodifiableListView) return _hi;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _zh;
+  @override
+  List<Service>? get zh {
+    final value = _zh;
+    if (value == null) return null;
+    if (_zh is EqualUnmodifiableListView) return _zh;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _th;
+  @override
+  List<Service>? get th {
+    final value = _th;
+    if (value == null) return null;
+    if (_th is EqualUnmodifiableListView) return _th;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Service>? _ta;
+  @override
+  List<Service>? get ta {
+    final value = _ta;
+    if (value == null) return null;
+    if (_ta is EqualUnmodifiableListView) return _ta;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'StreamingInfo(countries: $countries)';
+    return 'StreamingInfo(fr: $fr, en: $en, us: $us, de: $de, es: $es, it: $it, pt: $pt, ru: $ru, ja: $ja, ko: $ko, hi: $hi, zh: $zh, th: $th, ta: $ta)';
   }
 
   @override
@@ -415,14 +748,40 @@ class _$StreamingInfoImpl implements _StreamingInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StreamingInfoImpl &&
-            const DeepCollectionEquality()
-                .equals(other._countries, _countries));
+            const DeepCollectionEquality().equals(other._fr, _fr) &&
+            const DeepCollectionEquality().equals(other._en, _en) &&
+            const DeepCollectionEquality().equals(other._us, _us) &&
+            const DeepCollectionEquality().equals(other._de, _de) &&
+            const DeepCollectionEquality().equals(other._es, _es) &&
+            const DeepCollectionEquality().equals(other._it, _it) &&
+            const DeepCollectionEquality().equals(other._pt, _pt) &&
+            const DeepCollectionEquality().equals(other._ru, _ru) &&
+            const DeepCollectionEquality().equals(other._ja, _ja) &&
+            const DeepCollectionEquality().equals(other._ko, _ko) &&
+            const DeepCollectionEquality().equals(other._hi, _hi) &&
+            const DeepCollectionEquality().equals(other._zh, _zh) &&
+            const DeepCollectionEquality().equals(other._th, _th) &&
+            const DeepCollectionEquality().equals(other._ta, _ta));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_countries));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_fr),
+      const DeepCollectionEquality().hash(_en),
+      const DeepCollectionEquality().hash(_us),
+      const DeepCollectionEquality().hash(_de),
+      const DeepCollectionEquality().hash(_es),
+      const DeepCollectionEquality().hash(_it),
+      const DeepCollectionEquality().hash(_pt),
+      const DeepCollectionEquality().hash(_ru),
+      const DeepCollectionEquality().hash(_ja),
+      const DeepCollectionEquality().hash(_ko),
+      const DeepCollectionEquality().hash(_hi),
+      const DeepCollectionEquality().hash(_zh),
+      const DeepCollectionEquality().hash(_th),
+      const DeepCollectionEquality().hash(_ta));
 
   @JsonKey(ignore: true)
   @override
@@ -439,157 +798,56 @@ class _$StreamingInfoImpl implements _StreamingInfo {
 }
 
 abstract class _StreamingInfo implements StreamingInfo {
-  const factory _StreamingInfo({final Map<String, Country>? countries}) =
-      _$StreamingInfoImpl;
+  const factory _StreamingInfo(
+      {final List<Service>? fr,
+      final List<Service>? en,
+      final List<Service>? us,
+      final List<Service>? de,
+      final List<Service>? es,
+      final List<Service>? it,
+      final List<Service>? pt,
+      final List<Service>? ru,
+      final List<Service>? ja,
+      final List<Service>? ko,
+      final List<Service>? hi,
+      final List<Service>? zh,
+      final List<Service>? th,
+      final List<Service>? ta}) = _$StreamingInfoImpl;
 
   factory _StreamingInfo.fromJson(Map<String, dynamic> json) =
       _$StreamingInfoImpl.fromJson;
 
   @override
-  Map<String, Country>? get countries;
+  List<Service>? get fr;
+  @override
+  List<Service>? get en;
+  @override
+  List<Service>? get us;
+  @override
+  List<Service>? get de;
+  @override
+  List<Service>? get es;
+  @override
+  List<Service>? get it;
+  @override
+  List<Service>? get pt;
+  @override
+  List<Service>? get ru;
+  @override
+  List<Service>? get ja;
+  @override
+  List<Service>? get ko;
+  @override
+  List<Service>? get hi;
+  @override
+  List<Service>? get zh;
+  @override
+  List<Service>? get th;
+  @override
+  List<Service>? get ta;
   @override
   @JsonKey(ignore: true)
   _$$StreamingInfoImplCopyWith<_$StreamingInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Country _$CountryFromJson(Map<String, dynamic> json) {
-  return _Country.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Country {
-  List<Service> get services => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CountryCopyWith<Country> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CountryCopyWith<$Res> {
-  factory $CountryCopyWith(Country value, $Res Function(Country) then) =
-      _$CountryCopyWithImpl<$Res, Country>;
-  @useResult
-  $Res call({List<Service> services});
-}
-
-/// @nodoc
-class _$CountryCopyWithImpl<$Res, $Val extends Country>
-    implements $CountryCopyWith<$Res> {
-  _$CountryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? services = null,
-  }) {
-    return _then(_value.copyWith(
-      services: null == services
-          ? _value.services
-          : services // ignore: cast_nullable_to_non_nullable
-              as List<Service>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$CountryImplCopyWith<$Res> implements $CountryCopyWith<$Res> {
-  factory _$$CountryImplCopyWith(
-          _$CountryImpl value, $Res Function(_$CountryImpl) then) =
-      __$$CountryImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Service> services});
-}
-
-/// @nodoc
-class __$$CountryImplCopyWithImpl<$Res>
-    extends _$CountryCopyWithImpl<$Res, _$CountryImpl>
-    implements _$$CountryImplCopyWith<$Res> {
-  __$$CountryImplCopyWithImpl(
-      _$CountryImpl _value, $Res Function(_$CountryImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? services = null,
-  }) {
-    return _then(_$CountryImpl(
-      services: null == services
-          ? _value._services
-          : services // ignore: cast_nullable_to_non_nullable
-              as List<Service>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$CountryImpl implements _Country {
-  const _$CountryImpl({required final List<Service> services})
-      : _services = services;
-
-  factory _$CountryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CountryImplFromJson(json);
-
-  final List<Service> _services;
-  @override
-  List<Service> get services {
-    if (_services is EqualUnmodifiableListView) return _services;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_services);
-  }
-
-  @override
-  String toString() {
-    return 'Country(services: $services)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CountryImpl &&
-            const DeepCollectionEquality().equals(other._services, _services));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_services));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CountryImplCopyWith<_$CountryImpl> get copyWith =>
-      __$$CountryImplCopyWithImpl<_$CountryImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CountryImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Country implements Country {
-  const factory _Country({required final List<Service> services}) =
-      _$CountryImpl;
-
-  factory _Country.fromJson(Map<String, dynamic> json) = _$CountryImpl.fromJson;
-
-  @override
-  List<Service> get services;
-  @override
-  @JsonKey(ignore: true)
-  _$$CountryImplCopyWith<_$CountryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

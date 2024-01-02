@@ -46,14 +46,20 @@ class MyTestPage extends ConsumerWidget {
     String searchText = ref.watch(textSearchStateProvider);
     final testScreens = <Widget>[
       //Column(
-        //mainAxisAlignment: MainAxisAlignment.center,
-        //children: <Widget>[
-          Expanded(child: FilmsList(url: searchText)),
-        //],
+      //mainAxisAlignment: MainAxisAlignment.center,
+      //children: <Widget>[
+      Expanded(child: FilmsList(url: searchText)),
+      //],
       //),
-      Expanded(child: FilmsList(url: "https://api.themoviedb.org/3/movie/upcoming?language=${locale.languageCode}-${locale.countryCode}")),
-      
-      Expanded(child: FilmsList(url: "https://api.themoviedb.org/3/movie/popular?language=${locale.languageCode}-${locale.countryCode}")),
+      Expanded(
+          child: FilmsList(
+              url:
+                  "https://api.themoviedb.org/3/movie/upcoming?language=${locale.languageCode}-${locale.countryCode}")),
+
+      Expanded(
+          child: FilmsList(
+              url:
+                  "https://api.themoviedb.org/3/movie/popular?language=${locale.languageCode}-${locale.countryCode}")),
 
       Container(
         color: Colors.yellow,
