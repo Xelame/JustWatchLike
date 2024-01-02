@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:just_watch_like/Geolocator/services/geolocalisation.dart';
 import 'package:just_watch_like/Navigation/application_menu.dart';
 import 'package:just_watch_like/Navigation/navigation_menu.dart';
 import 'package:just_watch_like/firebase_options.dart';
@@ -40,6 +41,7 @@ class MyTestPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    getLocation(ref);
     String searchText = ref.watch(textSearchStateProvider);
     final testScreens = <Widget>[
       Column(
@@ -50,6 +52,7 @@ class MyTestPage extends ConsumerWidget {
       ),
       Container(
         color: Colors.green,
+        child: Text(ref.watch(geolocalisationProvider)),
       ),
       Container(
         color: Colors.blue,
