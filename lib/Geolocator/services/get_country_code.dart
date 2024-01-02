@@ -20,5 +20,5 @@ Future<String> getCountryFromLatLng(double latitude, double longitude) async {
     print('Error retrieving country: $e');
   }
 
-  return 'fr'; // Valeur par défaut en France si la recherche ne réussit pas
+  return 'us'; // Default country
 }
