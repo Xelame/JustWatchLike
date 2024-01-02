@@ -15,7 +15,7 @@ class ListService {
     if (response.statusCode == 200) {
       return Display.fromJson(json.decode(response.body));
     } else {
-      throw Exception('Failed to load todos');
+      throw Exception('Failed to load the list');
     }
   }
 } 

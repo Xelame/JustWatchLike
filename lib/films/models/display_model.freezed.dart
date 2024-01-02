@@ -167,7 +167,7 @@ mixin _$Result {
   @JsonKey(name: 'vote_average')
   double? get voteAverage => throw _privateConstructorUsedError;
   @JsonKey(name: 'media_type')
-  String get mediaType => throw _privateConstructorUsedError;
+  String? get mediaType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -185,7 +185,7 @@ abstract class $ResultCopyWith<$Res> {
       String? name,
       @JsonKey(name: 'poster_path') String? posterPath,
       @JsonKey(name: 'vote_average') double? voteAverage,
-      @JsonKey(name: 'media_type') String mediaType});
+      @JsonKey(name: 'media_type') String? mediaType});
 }
 
 /// @nodoc
@@ -206,7 +206,7 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
     Object? name = freezed,
     Object? posterPath = freezed,
     Object? voteAverage = freezed,
-    Object? mediaType = null,
+    Object? mediaType = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -229,10 +229,10 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
               as double?,
-      mediaType: null == mediaType
+      mediaType: freezed == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -250,7 +250,7 @@ abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
       String? name,
       @JsonKey(name: 'poster_path') String? posterPath,
       @JsonKey(name: 'vote_average') double? voteAverage,
-      @JsonKey(name: 'media_type') String mediaType});
+      @JsonKey(name: 'media_type') String? mediaType});
 }
 
 /// @nodoc
@@ -269,7 +269,7 @@ class __$$ResultImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? posterPath = freezed,
     Object? voteAverage = freezed,
-    Object? mediaType = null,
+    Object? mediaType = freezed,
   }) {
     return _then(_$ResultImpl(
       id: null == id
@@ -292,10 +292,10 @@ class __$$ResultImplCopyWithImpl<$Res>
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
               as double?,
-      mediaType: null == mediaType
+      mediaType: freezed == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -309,7 +309,7 @@ class _$ResultImpl implements _Result {
       this.name,
       @JsonKey(name: 'poster_path') this.posterPath,
       @JsonKey(name: 'vote_average') this.voteAverage,
-      @JsonKey(name: 'media_type') required this.mediaType});
+      @JsonKey(name: 'media_type') this.mediaType});
 
   factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
       _$$ResultImplFromJson(json);
@@ -328,7 +328,7 @@ class _$ResultImpl implements _Result {
   final double? voteAverage;
   @override
   @JsonKey(name: 'media_type')
-  final String mediaType;
+  final String? mediaType;
 
   @override
   String toString() {
@@ -372,13 +372,12 @@ class _$ResultImpl implements _Result {
 
 abstract class _Result implements Result {
   const factory _Result(
-          {required final int id,
-          final String? title,
-          final String? name,
-          @JsonKey(name: 'poster_path') final String? posterPath,
-          @JsonKey(name: 'vote_average') final double? voteAverage,
-          @JsonKey(name: 'media_type') required final String mediaType}) =
-      _$ResultImpl;
+      {required final int id,
+      final String? title,
+      final String? name,
+      @JsonKey(name: 'poster_path') final String? posterPath,
+      @JsonKey(name: 'vote_average') final double? voteAverage,
+      @JsonKey(name: 'media_type') final String? mediaType}) = _$ResultImpl;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
@@ -396,7 +395,7 @@ abstract class _Result implements Result {
   double? get voteAverage;
   @override
   @JsonKey(name: 'media_type')
-  String get mediaType;
+  String? get mediaType;
   @override
   @JsonKey(ignore: true)
   _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>

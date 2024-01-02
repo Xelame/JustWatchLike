@@ -17,7 +17,7 @@ class DetailService {
     if (response.statusCode == 200) {
       return Details.fromJson(json.decode(response.body));
     } else {
-      throw Exception('Failed to load todos');
+      throw Exception('Failed to load details');
     }
   }
 } 

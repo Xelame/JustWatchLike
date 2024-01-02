@@ -24,7 +24,7 @@ _$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       name: json['name'] as String?,
       posterPath: json['poster_path'] as String?,
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
-      mediaType: json['media_type'] as String,
+      mediaType: json['media_type'] as String?,
     );
 
 Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
