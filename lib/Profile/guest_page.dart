@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
+import "package:just_watch_like/Geolocator/pages/geolocator.dart";
 import "login_page.dart";
 import "register_page.dart";
-
 
 class GuestPage extends StatelessWidget {
   const GuestPage({super.key});
@@ -18,26 +18,27 @@ class GuestPage extends StatelessWidget {
         child: Column(
           children: [
             CustomTileButton(
-                height: 75,
-                content: "Login",
-                heading: Icons.account_circle,
-                trailing: Icons.arrow_forward_rounded, 
-                onTap: () {
-                  Navigator.push(
+              height: 75,
+              content: "Login",
+              heading: Icons.account_circle,
+              trailing: Icons.arrow_forward_rounded,
+              onTap: () {
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginPage()),
-                  );
-                },
-              ),
+                );
+              },
+            ),
             CustomTileButton(
                 height: 75,
                 content: "Register",
                 heading: Icons.person_add_alt_1_rounded,
                 trailing: Icons.arrow_forward_rounded,
-                onTap: (){
+                onTap: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const RegisterPage()),
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RegisterPage()),
                   );
                 }),
             CustomTileButton(
@@ -45,16 +46,18 @@ class GuestPage extends StatelessWidget {
                 content: "Pays",
                 heading: Icons.public_rounded,
                 trailing: Icons.arrow_forward_rounded,
-                onTap: (){
-
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LocationPage()),
+                  );
                 }),
             CustomTileButton(
                 height: 75,
                 content: "Langues",
                 heading: Icons.translate_rounded,
                 trailing: Icons.arrow_forward_rounded,
-                onTap: (){
-                }),
+                onTap: () {}),
           ],
         ),
       ),
