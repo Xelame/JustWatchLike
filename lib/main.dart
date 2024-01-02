@@ -63,9 +63,10 @@ class MyTestPage extends ConsumerWidget {
               url:
                   "https://api.themoviedb.org/3/movie/popular?language=${locale.languageCode}-${locale.countryCode}")),
 
-      Container(
-        color: Theme.of(context).colorScheme.background,
-      ),
+      Expanded(
+          child: FilmsList(
+              url:
+                  "https://api.themoviedb.org/3/discover/movie?language=${locale.languageCode}-${locale.countryCode}")),
     ];
 
     int selectedIndex = ref.watch(destinationStateProvider);
