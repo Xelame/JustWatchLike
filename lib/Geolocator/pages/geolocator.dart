@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_watch_like/Geolocator/services/geolocalisation.dart';
 import 'package:just_watch_like/Navigation/navigation_menu.dart';
+import 'package:just_watch_like/main.dart';
 
 class LocationPage extends ConsumerWidget {
   LocationPage({super.key});
@@ -37,8 +38,7 @@ class LocationPage extends ConsumerWidget {
                   country = _countryController.text;
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const NavigationMenu()),
+                    MaterialPageRoute(builder: (context) => const MyTestPage()),
                   );
                 },
                 child: const Text("Submit"),
